@@ -7,21 +7,23 @@ on:
 permissions:
   contents: write
 jobs:
-  update-flake:
+  update-flake-run-hooks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v30
 
-      - name: Update nix flake
+      - name: Update nix flake and run hooks
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           nix flake update
           nix flake update --flake ./sources
+          nix eval .#hooksScripts | bash
           git add flake.lock sources/flake.lock
           git diff-index --quiet HEAD || git commit -m "chore: update flake.lock"
           git push origin master
+
 
   cachix:
     needs: update-flake
