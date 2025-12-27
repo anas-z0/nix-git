@@ -28,13 +28,16 @@
               inputs.nixpkgs.legacyPackages.${system};
           in attr.overrideAttrs or (x: { }) sources.${pkg}));
       packages' = recAttrsUpdate (map getPkgs (builtins.attrNames sources));
+
       applyOverlays = start: overlays:
         foldl' (prev: cur:
           recursiveUpdate prev
-          (fix (self: cur self (recursiveUpdate start prev)))) { }
-        overlays;
-      overlays' = attrNames (filterAttrs (n: v: v == "directory") (builtins.readDir ./overlays));
+          (fix (self: cur self (recursiveUpdate start prev)))) { } overlays;
+      overlays' = attrNames
+        (filterAttrs (n: v: v == "directory") (builtins.readDir ./overlays));
       overlays = map import overlays';
-      packages = applyOverlays pkgs ([ (final: prev: packages') ] ++ overlays);
+      packages = mapAttrs (system: packages:
+        applyOverlays inputs.nixpkgs.legacyPackages.${system}
+        ([ (final: prev: packages) ] ++ overlays)) packages';
     in { inherit packages; };
 }
