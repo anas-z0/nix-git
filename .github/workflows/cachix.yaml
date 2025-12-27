@@ -19,7 +19,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           nix flake update
           nix flake update --flake ./sources
-          nix eval .#hooksScripts | bash
+          nix eval .#hooksScripts --raw | bash
           git add flake.lock sources/flake.lock
           git diff-index --quiet HEAD || git commit -m "chore: update flake.lock"
           git push origin master
