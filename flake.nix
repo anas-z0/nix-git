@@ -72,7 +72,7 @@
           nixpkgs.overlays = [
             (final: prev:
               concatMapAttrs (n: v: { ${n + "-git"} = v; })
-              packages.${final.stdenv.hostPlatform.system})
+              packages.${prev.stdenv.hostPlatform.system})
           ];
           nix.settings = {
             substituters = [ "https://anas-z0.cachix.org" ];
