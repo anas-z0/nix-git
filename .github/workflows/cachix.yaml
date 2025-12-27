@@ -1,11 +1,27 @@
 name: cachix
 run-name: build packages
 on:
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
+  update-flake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v30
+
+      - name: Update nix flake
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          nix flake update
+          nix flake update --flake ./sources
+          git add flake.lock sources/flake.lock
+          git diff-index --quiet HEAD || git commit -m "chore: update flake.lock"
+          git push origin master
   cachix:
+    needs: update-flake
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -13,6 +29,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+        with:
+          ref: master
       - name: Install nix
         uses: cachix/install-nix-action@v30
       - uses: cachix/cachix-action@v15
@@ -23,6 +41,7 @@ jobs:
         run: |
           nix build .#packages.x86_64-linux.${{ matrix.pkg }}
   cachix-x32:
+    needs: update-flake
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -30,6 +49,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+        with:
+          ref: master
       - name: Install nix
         uses: cachix/install-nix-action@v30
       - uses: cachix/cachix-action@v15
@@ -40,3 +61,20 @@ jobs:
         run: |
           nix build .#packages.i686-linux.${{ matrix.pkg }}
 
+  sync-branches:
+    needs: [cachix, cachix-x32]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Force update cached branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout cached
+          git reset --hard origin/master
+          git push origin cached --force
