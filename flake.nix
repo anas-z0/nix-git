@@ -29,12 +29,12 @@
           in attr.overrideAttrs or (x: { }) sources.${pkg}));
       packages' = recAttrsUpdate (map getPkgs (builtins.attrNames sources));
       applyOverlays = start: overlays:
-        builtins.foldl' (prev: cur:
-          lib.recursiveUpdate prev
-          (lib.fix (self: cur self (lib.recursiveUpdate start prev)))) { }
+        foldl' (prev: cur:
+          recursiveUpdate prev
+          (fix (self: cur self (recursiveUpdate start prev)))) { }
         overlays;
       overlays' = attrNames (filterAttrs (n: v: v == "directory") (builtins.readDir ./overlays));
       overlays = map import overlays';
-      packages = applyOverlays pkgs ([ (final: prev: packages') ] + overlays);
-    in { inherit overlays; };
+      packages = applyOverlays pkgs ([ (final: prev: packages') ] ++ overlays);
+    in { inherit packages; };
 }
