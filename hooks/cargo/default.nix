@@ -21,6 +21,7 @@ in {
           cargoHash = "$(echo $cargoHash)";
         };
       in prev.overrideAttrs { inherit (attr) cargoDeps cargoHash; passthru.tests = {};nativeInstallCheckInputs = [];}
+      EOF
     '');
     list = map str (builtins.attrNames brokenVendorForHash);
   in concatStringsSep "\n" list;
