@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
         arch: [x86_64-linux, i686-linux, aarch64-linux]
-        targets: [
+        target: [
           { "pkg": "wlroots", "outputs": ["out"] },
           { "pkg": "mesa", "outputs": ["out", "opencl"] }
         ]
@@ -45,9 +45,9 @@ jobs:
           skipPush: true
       - name: Build and push binaries
         run: |
-          outputs=$(echo '${{ toJSON(matrix.targets.outputs) }}' | jq -r '.[]')
+          outputs=$(echo '${{ toJSON(matrix.target.outputs) }}' | jq -r '.[]')
           for output in $outputs; do
-            nix build .#packages.x86_64-linux.${{ matrix.targets.pkg }} --print-out-paths | cachix push anas-z0 || true
+            nix build .#packages.x86_64-linux.${{ matrix.target.pkg }} --print-out-paths | cachix push anas-z0 || true
           done
   sync-branches:
     needs: cachix
