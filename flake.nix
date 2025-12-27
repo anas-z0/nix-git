@@ -4,6 +4,7 @@
     with builtins;
     with inputs.nixpkgs.lib;
     let
+      pkgsCur = inputs.nixpkgs.legacyPackages.x86_64-linux;
       nodes = (fromJSON (builtins.readFile sources/flake.lock)).nodes;
       sources'' = let a = filterAttrs (n: v: hasAttr "locked" v) nodes;
       in builtins.mapAttrs (n: v: builtins.fetchTree v.locked) a;
@@ -35,9 +36,33 @@
           (fix (self: cur self (recursiveUpdate start prev)))) { } overlays;
       overlays' = attrNames
         (filterAttrs (n: v: v == "directory") (builtins.readDir ./overlays));
-      overlays = map import overlays';
+      overlays = map (pkg:
+        let
+          path = (splitString "." pkg);
+          pathFrom = x: getAttrFromPath path x;
+          dir = toString ./overlays + "/" + strings.replaceString "." "/" pkg;
+          importRec = let
+            attrs = if pathExists dir then
+              filterAttrs (n: v: v == "regular") (builtins.readDir dir)
+            else
+              { };
+            files = builtins.attrNames attrs;
+            overlays = map (file: final: prev:
+              (import "${dir}/${file}") prev (pathFrom final) (pathFrom prev))
+              files;
+          in map (x: final: prev: setAttrByPath path (x final prev)) overlays;
+        in importRec) (attrNames sources);
       packages = mapAttrs (system: packages:
         applyOverlays inputs.nixpkgs.legacyPackages.${system}
-        ([ (final: prev: packages) ] ++ overlays)) packages';
-    in { inherit packages; };
+        ([ (final: prev: packages) ] ++ (lists.flatten overlays))) packages';
+    in rec {
+      inherit packages;
+      hooks =
+        let attrs = filterAttrs (n: v: v == "directory") (readDir ./hooks);
+        args = {pkgs = pkgsCur; inherit (inputs.nixpkgs) lib; inherit packages;};
+        in mapAttrs (n: v: (import ./hooks/${n}) args) attrs;
+      hooksScripts = let
+        list = mapAttrsToList (n: v: v.script) hooks;
+      in concatStringsSep "\n" list; 
+    };
 }
