@@ -27,6 +27,14 @@
             attr = attrByPath (splitString "." pkg) { }
               inputs.nixpkgs.legacyPackages.${system};
           in attr.overrideAttrs or (x: { }) sources.${pkg}));
-      packages = recAttrsUpdate (map getPkgs (builtins.attrNames sources));
-    in { inherit packages; };
+      packages' = recAttrsUpdate (map getPkgs (builtins.attrNames sources));
+      applyOverlays = start: overlays:
+        builtins.foldl' (prev: cur:
+          lib.recursiveUpdate prev
+          (lib.fix (self: cur self (lib.recursiveUpdate start prev)))) { }
+        overlays;
+      overlays' = attrNames (filterAttrs (n: v: v == "directory") (builtins.readDir ./overlays));
+      overlays = map import overlays';
+      packages = applyOverlays pkgs ([ (final: prev: packages') ] + overlays);
+    in { inherit overlays; };
 }
