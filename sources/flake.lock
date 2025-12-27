@@ -1,0 +1,48 @@
+{
+  "nodes": {
+    "mesa.src": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.freedesktop.org",
+        "lastModified": 1766781858,
+        "narHash": "sha256-kyMVdD364qX3Bkcu11mt6JVwprUOlBMX3YHJIxXvY6s=",
+        "owner": "mesa",
+        "repo": "mesa",
+        "rev": "7b7432164093dcb61332fa06819edbc124bb5f97",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.freedesktop.org",
+        "owner": "mesa",
+        "repo": "mesa",
+        "type": "gitlab"
+      }
+    },
+    "root": {
+      "inputs": {
+        "mesa.src": "mesa.src",
+        "wlroots.src": "wlroots.src"
+      }
+    },
+    "wlroots.src": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.freedesktop.org",
+        "lastModified": 1766372108,
+        "narHash": "sha256-oCaK4XDz1yNnrW6a2036KffapJ0u2/fLNH0XWOJdw+c=",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "rev": "9119b8aa851c413b79295f2a913124f0eed536d4",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.freedesktop.org",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "type": "gitlab"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
