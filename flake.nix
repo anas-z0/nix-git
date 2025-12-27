@@ -69,12 +69,12 @@
       in concatStringsSep "\n" list;
       nixosModules = {
         default = {
+          nixpkgs.overlays = [
+            (final: prev:
+              concatMapAttrs (n: v: { ${n + "-git"} = v; })
+              packages.${final.stdenv.hostPlatform.system})
+          ];
           nix.settings = {
-            nixpkgs.overlays = [
-              (final: prev:
-                concatMapAttrs (n: v: { ${n + "-git"} = v; })
-                packages.${final.stdenv.hostPlatform.system})
-            ];
             substituters = [ "https://anas-z0.cachix.org" ];
             trusted-public-keys = [
               "anas-z0.cachix.org-1:4sbhAHtvfzX4AnsJ6SlbShaoH41rHcQrZdLVfHtALDA="
