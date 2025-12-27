@@ -31,12 +31,12 @@ jobs:
         arch: [x86_64-linux, i686-linux ]
         target: [
           "wlroots",
-          "mesa opencl"
-          "bees"
-          "alacritty"
-          "alacritty-graphic"
-          "ananicy-rules-cachyos"
-          "ananicy-cpp"
+          "mesa opencl",
+          "bees",
+          "alacritty",
+          "alacritty-graphic",
+          "ananicy-rules-cachyos",
+          "ananicy-cpp",
           "appmenu-glib-translator"
         ]
     steps:
