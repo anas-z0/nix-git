@@ -57,12 +57,30 @@
         ([ (final: prev: packages) ] ++ (lists.flatten overlays))) packages';
     in rec {
       inherit packages;
-      hooks =
-        let attrs = filterAttrs (n: v: v == "directory") (readDir ./hooks);
-        args = {pkgs = pkgsCur; inherit (inputs.nixpkgs) lib; inherit packages;};
-        in mapAttrs (n: v: (import ./hooks/${n}) args) attrs;
-      hooksScripts = let
-        list = mapAttrsToList (n: v: v.script) hooks;
-      in concatStringsSep "\n" list; 
+      hooks = let
+        attrs = filterAttrs (n: v: v == "directory") (readDir ./hooks);
+        args = {
+          pkgs = pkgsCur;
+          inherit (inputs.nixpkgs) lib;
+          inherit packages;
+        };
+      in mapAttrs (n: v: (import ./hooks/${n}) args) attrs;
+      hooksScripts = let list = mapAttrsToList (n: v: v.script) hooks;
+      in concatStringsSep "\n" list;
+      nixosModules = {
+        default = {
+          nix.settings = {
+            nixpkgs.overlays = [
+              (final: prev:
+                concatMapAttrs (n: v: { ${n + "-git"} = v; })
+                packages.${final.stdenv.hostPlatform.system})
+            ];
+            substituters = [ "https://anas-z0.cachix.org" ];
+            trusted-public-keys = [
+              "anas-z0.cachix.org-1:4sbhAHtvfzX4AnsJ6SlbShaoH41rHcQrZdLVfHtALDA="
+            ];
+          };
+        };
+      };
     };
 }
