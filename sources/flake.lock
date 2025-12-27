@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "alacritty-graphic.src": {
+    "alacritty-graphics.src": {
       "flake": false,
       "locked": {
         "lastModified": 1762214400,
@@ -116,7 +116,7 @@
     },
     "root": {
       "inputs": {
-        "alacritty-graphic.src": "alacritty-graphic.src",
+        "alacritty-graphics.src": "alacritty-graphics.src",
         "alacritty.src": "alacritty.src",
         "ananicy-cpp.src": "ananicy-cpp.src",
         "ananicy-rules-cachyos.src": "ananicy-rules-cachyos.src",
