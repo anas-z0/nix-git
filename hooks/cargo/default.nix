@@ -13,6 +13,7 @@ in {
   script = let
     str = (x: ''
       cargoHash=$(nix build '.#hooks.cargo.brokenVendorForHash.${x}' 2>&1 | awk -F 'got: ' '/got: / {print $2}')
+      mkdir -p overlays/${strings.replaceString "." "/" x}
       cat << EOF > overlays/${strings.replaceString "." "/" x}/default.nix
       pkgs: final: prev:
       let
