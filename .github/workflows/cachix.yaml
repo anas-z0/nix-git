@@ -1,0 +1,26 @@
+name: cachix
+run-name: build packages
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+jobs:
+  cachix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pkg: [wlroots, mesa]
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install nix
+        uses: cachix/install-nix-action@v30
+      - uses: cachix/cachix-action@v15
+        with:
+          name: anas-z0
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Build ${{ matrix.pkg }}
+        run: |
+          for arch in i686-linux x86_64-linux; do
+            nix build .#packages.$arch.${{ matrix.pkg }}
+          done
