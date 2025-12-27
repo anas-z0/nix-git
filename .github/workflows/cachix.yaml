@@ -20,12 +20,17 @@ jobs:
           git add flake.lock sources/flake.lock
           git diff-index --quiet HEAD || git commit -m "chore: update flake.lock"
           git push origin master
+
   cachix:
     needs: update-flake
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pkg: [wlroots, mesa]
+        arch: [x86_64-linux, i686-linux, aarch64-linux]
+        targets: [
+          { "pkg": "wlroots", "outputs": ["out"] },
+          { "pkg": "mesa", "outputs": ["out", "opencl"] }
+        ]
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -37,32 +42,15 @@ jobs:
         with:
           name: anas-z0
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build ${{ matrix.pkg }}
+          skipPush: true
+      - name: Build and push binaries
         run: |
-          nix build .#packages.x86_64-linux.${{ matrix.pkg }}
-  cachix-x32:
-    needs: update-flake
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        pkg: [mesa]
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-        with:
-          ref: master
-      - name: Install nix
-        uses: cachix/install-nix-action@v30
-      - uses: cachix/cachix-action@v15
-        with:
-          name: anas-z0
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build ${{ matrix.pkg }}
-        run: |
-          nix build .#packages.i686-linux.${{ matrix.pkg }}
-
+          outputs=$(echo '${{ github.event.inputs.targets || toJSON(matrix.target.outputs) }}' | jq -r '.[]')
+          for output in $outputs; do
+            nix build .#packages.x86_64-linux.${{ matrix.targets.pkg }} --print-out-paths | cachix push anas-z0 || true
+          done
   sync-branches:
-    needs: [cachix, cachix-x32]
+    needs: cachix
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
