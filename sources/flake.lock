@@ -1,5 +1,101 @@
 {
   "nodes": {
+    "alacritty-graphic.src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762214400,
+        "narHash": "sha256-Kfxo6bpJM+4/wlPuqrcTcDsahEkH38qVuDPrXt5x5jE=",
+        "owner": "ayosec",
+        "repo": "alacritty",
+        "rev": "39d94d1fe40031265e778cfc021ca896728d5036",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ayosec",
+        "repo": "alacritty",
+        "type": "github"
+      }
+    },
+    "alacritty.src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1766450390,
+        "narHash": "sha256-MHedmUft7b7+AyijAcHBMM9EoTmaPCR/h80YIUqIEa0=",
+        "owner": "alacritty",
+        "repo": "alacritty",
+        "rev": "6ee6e53ee3457c24137f117237b0ff1d84f6f836",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alacritty",
+        "repo": "alacritty",
+        "type": "github"
+      }
+    },
+    "ananicy-cpp.src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751116989,
+        "narHash": "sha256-1e5zP35F7g5wlhktIyACp1fIz0Lv6klws8/mGHdXewY=",
+        "owner": "ananicy-cpp",
+        "repo": "ananicy-cpp",
+        "rev": "7fb9ed828edad85fe89359feafd8565831cb342f",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "ananicy-cpp",
+        "repo": "ananicy-cpp",
+        "type": "gitlab"
+      }
+    },
+    "ananicy-rules-cachyos.src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1766696755,
+        "narHash": "sha256-vEwpJ5AQS4Xwdyvm6/jOtG3V32C50qr3W8hkEbq/IJk=",
+        "owner": "CachyOS",
+        "repo": "ananicy-rules",
+        "rev": "410a04d9af9ac9b6bfefa06cf53ae9b91f1294bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CachyOS",
+        "repo": "ananicy-rules",
+        "type": "github"
+      }
+    },
+    "appmenu-glib-translator.src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1764758000,
+        "narHash": "sha256-YOyUYw0Q5BSLSACzNPJZKU+1JS4OmWt9VT4L3ophx9I=",
+        "owner": "vala-panel-project",
+        "repo": "vala-panel-appmenu",
+        "rev": "aea4ea398b7c75494f23f5e5bdb4f495d615059f",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "vala-panel-project",
+        "repo": "vala-panel-appmenu",
+        "type": "gitlab"
+      }
+    },
+    "bees.src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761364112,
+        "narHash": "sha256-E+fDk7eMysmDhqrUvv3GPfBvJ0+InG8Od64+EwryqOI=",
+        "owner": "Zygo",
+        "repo": "bees",
+        "rev": "cddce845429766561b3eafecdd62ce67cebaa981",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Zygo",
+        "repo": "bees",
+        "type": "github"
+      }
+    },
     "mesa.src": {
       "flake": false,
       "locked": {
@@ -20,6 +116,12 @@
     },
     "root": {
       "inputs": {
+        "alacritty-graphic.src": "alacritty-graphic.src",
+        "alacritty.src": "alacritty.src",
+        "ananicy-cpp.src": "ananicy-cpp.src",
+        "ananicy-rules-cachyos.src": "ananicy-rules-cachyos.src",
+        "appmenu-glib-translator.src": "appmenu-glib-translator.src",
+        "bees.src": "bees.src",
         "mesa.src": "mesa.src",
         "wlroots.src": "wlroots.src"
       }
