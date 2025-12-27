@@ -45,7 +45,7 @@ jobs:
           skipPush: true
       - name: Build and push binaries
         run: |
-          outputs=$(echo '${{ toJSON(matrix.target.outputs) }}' | jq -r '.[]')
+          outputs=$(echo '${{ toJSON(matrix.targets.outputs) }}' | jq -r '.[]')
           for output in $outputs; do
             nix build .#packages.x86_64-linux.${{ matrix.targets.pkg }} --print-out-paths | cachix push anas-z0 || true
           done
