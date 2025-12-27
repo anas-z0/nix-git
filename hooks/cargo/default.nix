@@ -4,7 +4,7 @@ with builtins;
 let
   cargoPackages = filterAttrs (n: hasAttr "cargoHash") packages.x86_64-linux;
   brokenVendorForHash = mapAttrs (n: v:
-    (pkgsCur.rustPlatform.buildRustPackage {
+    (pkgs.rustPlatform.buildRustPackage {
       inherit (v) name src;
       cargoHash = "";
     }).cargoDeps) cargoPackages;
