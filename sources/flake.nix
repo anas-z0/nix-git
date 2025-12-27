@@ -26,7 +26,7 @@
     };
     "ananicy-cpp.src" = {
       flake = false;
-      url = "github:ananicy-cpp/ananicy-cpp";
+      url = "gitlab:ananicy-cpp/ananicy-cpp";
     };
     "appmenu-glib-translator.src" = {
       flake = false;
