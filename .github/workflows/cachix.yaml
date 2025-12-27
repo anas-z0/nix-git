@@ -30,8 +30,14 @@ jobs:
       matrix:
         arch: [x86_64-linux, i686-linux ]
         target: [
-          { "pkg": "wlroots", "outputs": ["out"] },
-          { "pkg": "mesa", "outputs": ["out", "opencl"] }
+          "wlroots",
+          "mesa opencl"
+          "bees"
+          "alacritty"
+          "alacritty-graphic"
+          "ananicy-rules-cachyos"
+          "ananicy-cpp"
+          "appmenu-glib-translator"
         ]
     steps:
       - name: Check out repository code
@@ -48,8 +54,9 @@ jobs:
       - name: Build and push binaries
         continue-on-error: true
         run: |
-          outputs=$(echo '${{ toJSON(matrix.target.outputs) }}' | jq -r '.[]')
-          for output in $outputs; do
+          pkg=$(echo '${{ matrix.target }}' | cut -d' ' -f1)
+          outputs=$(echo '${{ matrix.target }}' | cut -d' ' -f2-)
+          for output in out $outputs; do
             nix build .#packages.${{ matrix.arch  }}.${{ matrix.target.pkg }} --print-out-paths | cachix push anas-z0
           done
   sync-branches:
