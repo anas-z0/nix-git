@@ -34,7 +34,7 @@ jobs:
           "mesa opencl",
           "bees",
           "alacritty",
-          "alacritty-graphic",
+          "alacritty-graphics",
           "ananicy-rules-cachyos",
           "ananicy-cpp",
           "appmenu-glib-translator"
