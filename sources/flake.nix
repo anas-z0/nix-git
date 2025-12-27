@@ -16,7 +16,7 @@
       flake = false;
       url = "github:alacritty/alacritty";
     };
-    "alacritty-graphic.src" = {
+    "alacritty-graphics.src" = {
       flake = false;
       url = "github:ayosec/alacritty";
     };
