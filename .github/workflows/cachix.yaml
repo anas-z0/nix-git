@@ -21,6 +21,22 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Build ${{ matrix.pkg }}
         run: |
-          for arch in i686-linux x86_64-linux; do
-            nix build .#packages.$arch.${{ matrix.pkg }}
-          done
+          nix build .#packages.x86_64-linux.${{ matrix.pkg }}
+  cachix-x32:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pkg: [mesa]
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install nix
+        uses: cachix/install-nix-action@v30
+      - uses: cachix/cachix-action@v15
+        with:
+          name: anas-z0
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Build ${{ matrix.pkg }}
+        run: |
+          nix build .#packages.i686-linux.${{ matrix.pkg }}
+
