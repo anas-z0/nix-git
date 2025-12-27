@@ -1,6 +1,8 @@
 name: cachix
 run-name: build packages
 on:
+  schedule:
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 permissions:
   contents: write
@@ -26,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [x86_64-linux, i686-linux, aarch64-linux]
+        arch: [x86_64-linux, i686-linux ]
         target: [
           { "pkg": "wlroots", "outputs": ["out"] },
           { "pkg": "mesa", "outputs": ["out", "opencl"] }
@@ -44,10 +46,11 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           skipPush: true
       - name: Build and push binaries
+        continue-on-error: true
         run: |
           outputs=$(echo '${{ toJSON(matrix.target.outputs) }}' | jq -r '.[]')
           for output in $outputs; do
-            nix build .#packages.x86_64-linux.${{ matrix.target.pkg }} --print-out-paths | cachix push anas-z0 || true
+            nix build .#packages.${{ matrix.arch  }}.${{ matrix.target.pkg }} --print-out-paths | cachix push anas-z0
           done
   sync-branches:
     needs: cachix
