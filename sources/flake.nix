@@ -30,7 +30,7 @@
     };
     "appmenu-glib-translator.src" = {
       flake = false;
-      url = "github:vala-panel-project/vala-panel-appmenu";
+      url = "gitlab:vala-panel-project/vala-panel-appmenu";
     };
 
   };
