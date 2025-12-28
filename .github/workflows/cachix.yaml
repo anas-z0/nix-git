@@ -65,7 +65,7 @@ jobs:
           pkg=$(echo '${{ matrix.target }}' | cut -d' ' -f1)
           outputs=$(echo '${{ matrix.target }}' | cut -d' ' -f2-)
           for output in out $outputs; do
-            nix build ".#packages.x86_64-linuxcontinue-on-error: true.$pkg" --print-out-paths | cachix push anas-z0
+            nix build ".#packages.x86_64-linux.$pkg" --print-out-paths | cachix push anas-z0
           done
   sync-branches:
     needs: cachix
