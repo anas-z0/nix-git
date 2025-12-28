@@ -34,7 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [x86_64-linux, i686-linux ]
         target: [
           "wlroots",
           "mesa opencl",
@@ -62,10 +61,11 @@ jobs:
       - name: Build and push binaries
         continue-on-error: true
         run: |
+          set -o pipefail
           pkg=$(echo '${{ matrix.target }}' | cut -d' ' -f1)
           outputs=$(echo '${{ matrix.target }}' | cut -d' ' -f2-)
           for output in out $outputs; do
-            nix build ".#packages.${{ matrix.arch  }}.$pkg" --print-out-paths | cachix push anas-z0
+            nix build ".#packages.x86_64-linuxcontinue-on-error: true.$pkg" --print-out-paths | cachix push anas-z0
           done
   sync-branches:
     needs: cachix
