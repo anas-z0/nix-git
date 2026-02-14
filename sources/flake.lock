@@ -83,11 +83,11 @@
     "bees.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1761364112,
-        "narHash": "sha256-E+fDk7eMysmDhqrUvv3GPfBvJ0+InG8Od64+EwryqOI=",
+        "lastModified": 1771046587,
+        "narHash": "sha256-HmXCQB477AhEo7dormAv+d7jz4cKiQEHQie9VvUqUzM=",
         "owner": "Zygo",
         "repo": "bees",
-        "rev": "cddce845429766561b3eafecdd62ce67cebaa981",
+        "rev": "b8086fb41af052bdadf35dc13382604e246dc12c",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1771027034,
-        "narHash": "sha256-3PwxNmJnu5wqfKdpPIGbsZ3kzy7/WX9R8UbeBEY2nDk=",
+        "lastModified": 1771034819,
+        "narHash": "sha256-rexsAtNHXIRsVa0Wn+pumgbsFyPQ8l4Au2Yj+3qB86g=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "db532eaf000d239a3ff2711765ac6030bb6cc6d4",
+        "rev": "df704bd38e77b1cea53d6396e03198cd58f8ad51",
         "type": "gitlab"
       },
       "original": {
