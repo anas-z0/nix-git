@@ -2,6 +2,6 @@ pkgs: final: prev:
 let
   attr = pkgs.rustPlatform.buildRustPackage {
     inherit (prev) name src;
-    cargoHash = "sha256-r8u2gzO0vWsPEvnE4dPI3ZfnSWpR2p1b4D8NaZXjFyg=";
+    cargoHash = "sha256-WQtP6AsECjW3JFagW5LJM3LyROgDWhxFw364VcP65rQ=";
   };
 in prev.overrideAttrs { inherit (attr) cargoDeps cargoHash; passthru.tests = {};nativeInstallCheckInputs = [];}
