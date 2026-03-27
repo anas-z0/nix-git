@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1774564735,
-        "narHash": "sha256-2tpWzJJJz2NERJieX/uXGSjl3lmQzy3NRnVHd02njCU=",
+        "lastModified": 1774604935,
+        "narHash": "sha256-KHbOMDtd3KCw+0yN0S9K2F+aDnR2jMoIaFllv5lHsIw=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "fa523aedd0ab96cb4262f3d63e2d8fd75a112efb",
+        "rev": "56a652874437ebd31542df3813d6d65e7a54da54",
         "type": "gitlab"
       },
       "original": {
