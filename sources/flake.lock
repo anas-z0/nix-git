@@ -35,11 +35,11 @@
     "ananicy-cpp.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1774479811,
-        "narHash": "sha256-XEeTf6+Ss7AiogGR/fyH168BjN/TvoYt2Gn7zLEWaRw=",
+        "lastModified": 1774622119,
+        "narHash": "sha256-JpdeG9sjyXR1bZXrVJHvJeShHgFBzGMwkZxkX3v1u8U=",
         "owner": "ananicy-cpp",
         "repo": "ananicy-cpp",
-        "rev": "cf5ac2eb7b9660794f26f274975066f33359c63e",
+        "rev": "a42a187e81a8c02e80bee10b2463d178f08708cf",
         "type": "gitlab"
       },
       "original": {
@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1774604935,
-        "narHash": "sha256-KHbOMDtd3KCw+0yN0S9K2F+aDnR2jMoIaFllv5lHsIw=",
+        "lastModified": 1774633701,
+        "narHash": "sha256-ouhFtQzFAK1V4Q6DinQRSBeiccKAZ2Hx+LmTvnLQzvg=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "56a652874437ebd31542df3813d6d65e7a54da54",
+        "rev": "b76678cddd18190a3bfc609b260422f65a784f9e",
         "type": "gitlab"
       },
       "original": {
@@ -130,11 +130,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1774529049,
-        "narHash": "sha256-fiuF4y8F/pDorfaAD+EeGclt1Dj53VTzOl3ntYD5o2Q=",
+        "lastModified": 1774634947,
+        "narHash": "sha256-GPsFqKArQkxqggASWR9jDVu7igPdaujlnw/mNetA6nc=",
         "owner": "wlroots",
         "repo": "wlroots",
-        "rev": "f295d0322aea328f32cfd418459b8331e613b466",
+        "rev": "334019f839bf0728d958c179aceed67e0e8db66a",
         "type": "gitlab"
       },
       "original": {
