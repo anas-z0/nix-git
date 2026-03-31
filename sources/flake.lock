@@ -19,11 +19,11 @@
     "alacritty.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1774081508,
-        "narHash": "sha256-dZsJV5V1f1GDzqLYv67lOuaYVC1iuJ1QrUWcj7hzK/4=",
+        "lastModified": 1774908255,
+        "narHash": "sha256-tMobTBLgL/GDu7oeaOq9X5X7Lo2xpC0ETDlwPumPWdg=",
         "owner": "alacritty",
         "repo": "alacritty",
-        "rev": "48ff32f7c6bbe2c084f1abc39470487510687323",
+        "rev": "f99dc71708d31d5c32d4b3fa611f9a87bf22657e",
         "type": "github"
       },
       "original": {
@@ -51,11 +51,11 @@
     "ananicy-rules-cachyos.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1774874714,
-        "narHash": "sha256-3hZrVAVG9DpOtYBi7+OR69S1ptemkhtawCMkTfcHpzA=",
+        "lastModified": 1774920731,
+        "narHash": "sha256-hFBQGmGKUw/LT1DiyfnTsYO5Lt2c7LBMLRVBMmjYakY=",
         "owner": "CachyOS",
         "repo": "ananicy-rules",
-        "rev": "d01428e89805bebc46bb41e905e62d64bd7fcc88",
+        "rev": "7460ed8d375425f50517119b0df3a57b876b504e",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1774892865,
-        "narHash": "sha256-+nNmhfRM8/kUMhaQEGfCk7f42XKMNEY4w6nm3kq4R8I=",
+        "lastModified": 1774914453,
+        "narHash": "sha256-djkLAIyytlHRkF9NtrO8sKOP+hp/RHlBma0oNoZaHTM=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "bf8862b49f18269ff41d88deab826bc5cea3141a",
+        "rev": "75b0dc667d33612959b983a98f06946a4b1d2fda",
         "type": "gitlab"
       },
       "original": {
@@ -130,11 +130,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1774634947,
-        "narHash": "sha256-GPsFqKArQkxqggASWR9jDVu7igPdaujlnw/mNetA6nc=",
+        "lastModified": 1774884182,
+        "narHash": "sha256-6eOqeq9yYeY815rad1Pw2XhF1Y/eee9HwWlCNVZpfFo=",
         "owner": "wlroots",
         "repo": "wlroots",
-        "rev": "334019f839bf0728d958c179aceed67e0e8db66a",
+        "rev": "e22084f63967aa72cb56873aeb48b01fb8dc2c9b",
         "type": "gitlab"
       },
       "original": {
