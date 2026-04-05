@@ -130,11 +130,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1775084384,
-        "narHash": "sha256-Nf6adj9x8HkMaMJZMjEmgq+OkzjM24n/HqLRFu2/kcU=",
+        "lastModified": 1775386345,
+        "narHash": "sha256-XQzXegYqGJIA95kTehCQ7E+pYAtMMzIFYzi7g2jfslw=",
         "owner": "wlroots",
         "repo": "wlroots",
-        "rev": "c66a910753941c905299e62d9e31a4e90c0bbe98",
+        "rev": "9de0ec308917262f8380e5a0c6d6110464f64314",
         "type": "gitlab"
       },
       "original": {
