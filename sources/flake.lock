@@ -51,11 +51,11 @@
     "ananicy-rules-cachyos.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1775951300,
-        "narHash": "sha256-9LQNIinc+/XIA7I4JSKx69YcF64Ili5CVeLBPqbMSpY=",
+        "lastModified": 1776036696,
+        "narHash": "sha256-z4BGlXC2gOhTfzQP104Jle8TdO8cC0AUG7BZCAcQxwY=",
         "owner": "CachyOS",
         "repo": "ananicy-rules",
-        "rev": "d7d8b09feb729ce1a74258b6179b1291a4613a1c",
+        "rev": "de0853cd1c405a491cdfebff2cefebfb36986bd2",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1776016488,
-        "narHash": "sha256-VDqHSpNv3Fkq+ldKl3hhQXLjaShmlQtnS16/bLjsqQE=",
+        "lastModified": 1776031120,
+        "narHash": "sha256-JK3TUdk+vAZQdbmsqnPmJetryEN6thB35Gqq4ZBd1so=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "21bdc7105d2f98e52a86c345527e97b959503bce",
+        "rev": "58d45725c7cca54c02079566e0f0bb59b16a1e5d",
         "type": "gitlab"
       },
       "original": {
