@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1779433789,
-        "narHash": "sha256-EU2+gWZtwDS3C9NLOwviCUjIsTj1+R4cREb6tg5oeGk=",
+        "lastModified": 1779456697,
+        "narHash": "sha256-lFatYVDYBIrYBWqaGD4vIi9Utuli25K4LaVxfEqvbbs=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "190ce8280f4876462f2df091611bbefc968cf5d5",
+        "rev": "5b07e5e8e40f4ccfc4f9fa94784814ba43bd9388",
         "type": "gitlab"
       },
       "original": {
@@ -130,11 +130,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1779389882,
-        "narHash": "sha256-wailgK+S7/7/l0FJ1wNYxf/7SC3ECOo3WdRE5iPj61A=",
+        "lastModified": 1779457372,
+        "narHash": "sha256-zTNxlu+Mf6sUsaYGj7jvJ5rMGmpx1bSXVmi51MwJIPE=",
         "owner": "wlroots",
         "repo": "wlroots",
-        "rev": "fd610841cc50889ec9fa0f86d2d24822f9008162",
+        "rev": "cb0fa9b0a3883689179532c20a67cc8ea3b53969",
         "type": "gitlab"
       },
       "original": {
