@@ -51,11 +51,11 @@
     "ananicy-rules-cachyos.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1783035507,
-        "narHash": "sha256-iNb29QTIJqI9ctJ+4JV82W/ntgnakFGjShq5RCnRIQ0=",
+        "lastModified": 1783213790,
+        "narHash": "sha256-H6JQDJ7KAxsECtpfcF02n7aJLmuoJeUVOaW8v2LDSSY=",
         "owner": "CachyOS",
         "repo": "ananicy-rules",
-        "rev": "d46e30531b898ffde34b958a6a3903d17bec23b4",
+        "rev": "657abac4ae69cc045d0182a89185344ee32c66d2",
         "type": "github"
       },
       "original": {
