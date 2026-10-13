@@ -67,11 +67,11 @@
     "appmenu-glib-translator.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1791554323,
-        "narHash": "sha256-Fc12mjzVS6wghG1sezsEII7tR9xuXkW6I17QPyHIr88=",
+        "lastModified": 1791836887,
+        "narHash": "sha256-i9joEYhXwO4Y7wRcAWXReEMdlfN4BSeGPciwFuTYESI=",
         "owner": "vala-panel-project",
         "repo": "vala-panel-appmenu",
-        "rev": "eb3077eac96f0e1836d7d455bf847367c9eb0c2e",
+        "rev": "8281a2534ef4b0e0f69a0eeb5a812d2cb69beddc",
         "type": "gitlab"
       },
       "original": {
@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1791801762,
-        "narHash": "sha256-ck/U+177g6mK2SEKe/klmrmDlv5/nSMglvNFa/MrUFc=",
+        "lastModified": 1791846234,
+        "narHash": "sha256-ehlVl05kGWV60O5oak4T4L4SJIUQhevw1NM2LC/LJ48=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "1b75efe0014c0d71163a01589bafb510460e7049",
+        "rev": "5971f6151a3ba58ab0bb3da57d7c88332fabbd0f",
         "type": "gitlab"
       },
       "original": {
