@@ -19,11 +19,11 @@
     "alacritty.src": {
       "flake": false,
       "locked": {
-        "lastModified": 1792129674,
-        "narHash": "sha256-TdpedoOcMUwAPc80Rfmo+gYtTVIxLqOnZJp26aEZFQE=",
+        "lastModified": 1793053943,
+        "narHash": "sha256-P+6AIVsVKlBLZIUxaXP4vY+EXohQHawK5uCaAfHNU2o=",
         "owner": "alacritty",
         "repo": "alacritty",
-        "rev": "542147067dd016fc5f49120ef0ba605a98a4e3a7",
+        "rev": "bbb2cbf9470a6707b1205fbddbdb25109b14e2fd",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1793049991,
-        "narHash": "sha256-ylav7WnfC3WA/t/bAt20MhXS0eOQH/Zv+8x2sbVzXdc=",
+        "lastModified": 1793066406,
+        "narHash": "sha256-JRWf83cQhbNWQ6KmKBsv6F+N54OnSywnOFvuDpuAGeg=",
         "owner": "mesa",
         "repo": "mesa",
-        "rev": "4f64fb17129a846b72fcad0175eea6db937294a6",
+        "rev": "fe83a9252d015a5e3553ee3ce296fec373382b05",
         "type": "gitlab"
       },
       "original": {
